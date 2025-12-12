@@ -15,21 +15,15 @@
 
     <style>
         :root {
-            /* Colores extraídos de default_app_colors.dart */
+            /* Branding MyFitBro */
             --primary: #FF9F0A;
-            /* primary500 */
             --primary-hover: #CC6302;
-            /* primary700 */
             --secondary: #00BDFC;
-            /* secondary */
             --bg-dark: #121212;
-            /* Fondo Dark Mode */
             --surface: #1E1E1E;
-            /* Superficies */
             --text-main: #FCFDFD;
-            /* baseWhite */
             --text-muted: #BFCED3;
-            /* gray400 */
+            --success: #0F8A3E;
         }
 
         * {
@@ -46,26 +40,20 @@
             overflow-x: hidden;
         }
 
-        /* Utility Layout */
+        /* Layout */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* Header / Nav */
+        /* Header */
         header {
-            padding: 20px 0;
+            padding: 24px 0;
             position: absolute;
             width: 100%;
             top: 0;
             z-index: 10;
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
         .logo {
@@ -78,22 +66,23 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
-            /* Space for header */
+            padding-top: 100px;
+            /* Espacio para el header fijo */
+            padding-bottom: 60px;
             position: relative;
         }
 
-        /* Efecto de fondo sutil (Gradiente inspirado en tus assets) */
+        /* Fondos decorativos (Glow effects) */
         .hero::before {
             content: '';
             position: absolute;
             top: -20%;
             right: -10%;
             width: 50%;
-            height: 50%;
-            background: radial-gradient(circle, rgba(0, 189, 252, 0.2) 0%, rgba(18, 18, 18, 0) 70%);
+            height: 60%;
+            background: radial-gradient(circle, rgba(0, 189, 252, 0.15) 0%, rgba(18, 18, 18, 0) 70%);
             z-index: -1;
-            filter: blur(60px);
+            filter: blur(80px);
         }
 
         .hero::after {
@@ -102,10 +91,10 @@
             bottom: -10%;
             left: -10%;
             width: 40%;
-            height: 40%;
-            background: radial-gradient(circle, rgba(255, 159, 10, 0.15) 0%, rgba(18, 18, 18, 0) 70%);
+            height: 50%;
+            background: radial-gradient(circle, rgba(255, 159, 10, 0.12) 0%, rgba(18, 18, 18, 0) 70%);
             z-index: -1;
-            filter: blur(60px);
+            filter: blur(80px);
         }
 
         .hero-grid {
@@ -115,9 +104,9 @@
             align-items: center;
         }
 
+        /* Tipografía Hero */
         .hero-text h1 {
             font-size: 3.5rem;
-            /* AppTextStyles h1 scaled up */
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 24px;
@@ -128,31 +117,105 @@
         }
 
         .hero-text p {
-            font-size: 1.25rem;
-            /* bodyMSemibold scaled */
+            font-size: 1.2rem;
             color: var(--text-muted);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-weight: 400;
+            max-width: 90%;
         }
 
-        /* CTA Button */
-        .cta-button {
+        /* Badge */
+        .badge {
             display: inline-block;
+            background: rgba(0, 189, 252, 0.1);
+            color: var(--secondary);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            border: 1px solid rgba(0, 189, 252, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Estilos del Formulario --- */
+        .form-container {
+            background: rgba(30, 30, 30, 0.5);
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            max-width: 480px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            background: var(--surface);
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 159, 10, 0.2);
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
             background-color: var(--primary);
             color: #fff;
-            padding: 16px 40px;
+            padding: 16px;
             border-radius: 50px;
             font-weight: 700;
-            text-decoration: none;
             font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
             transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 15px rgba(255, 159, 10, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 159, 10, 0.3);
         }
 
-        .cta-button:hover {
+        .submit-btn:hover {
             background-color: var(--primary-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 159, 10, 0.6);
+            box-shadow: 0 6px 20px rgba(255, 159, 10, 0.5);
+        }
+
+        .submit-btn:disabled {
+            background-color: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Mensaje de éxito */
+        #success-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-icon {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 10px;
         }
 
         /* Phone Mockup */
@@ -160,15 +223,24 @@
             position: relative;
             display: flex;
             justify-content: center;
+            perspective: 1000px;
         }
 
         .phone-frame {
-            border: 8px solid #333;
-            border-radius: 40px;
+            border: 12px solid #2a2a2a;
+            border-radius: 45px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            max-width: 320px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+            max-width: 340px;
             background: #000;
+            position: relative;
+            z-index: 2;
+            transform: rotateY(-10deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .phone-frame:hover {
+            transform: rotateY(0deg) rotateX(0deg);
         }
 
         .phone-frame img {
@@ -177,39 +249,35 @@
             height: auto;
         }
 
-        /* Feature Badge */
-        .badge {
-            display: inline-block;
-            background: rgba(0, 189, 252, 0.1);
-            color: var(--secondary);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border: 1px solid rgba(0, 189, 252, 0.3);
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
             .hero-grid {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 40px;
-                padding-bottom: 60px;
+                gap: 50px;
             }
 
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
-            .hero {
-                padding-top: 100px;
-                display: block;
+            .form-container {
+                margin: 0 auto;
+            }
+
+            .input-row {
+                grid-template-columns: 1fr;
+                /* Apilar selects en móvil */
             }
 
             .mockup-container {
                 margin-top: 20px;
+            }
+
+            .phone-frame {
+                transform: none;
+                /* Quitar efecto 3D en móvil */
+                max-width: 280px;
             }
         }
     </style>
@@ -218,7 +286,7 @@
 <body>
 
     <header>
-        <div class="container nav-content">
+        <div class="container">
             <img src="assets/img/logo.png" alt="MyFitBro Logo" class="logo">
         </div>
     </header>
@@ -234,121 +302,126 @@
                         <span class="highlight">Registra tu progreso.</span>
                     </h1>
                     <p>
-                        Deja de usar notas dispersas. MyFitBro es la herramienta definitiva para registrar tus WODs,
-                        calcular tus porcentajes de RM automáticamente y visualizar tu evolución real.
+                        Olvídate de las notas dispersas. MyFitBro cuantifica tu evolución en Crossfit, calcula tus RMs
+                        automáticamente y te ayuda a entrenar más inteligente.
                     </p>
 
-                    <a href="mailto:info@myfitbro.app?subject=Quiero acceso anticipado a MyFitBro" class="cta-button">
-                        Solicitar Acceso Beta
-                    </a>
+                    <div class="form-container">
 
-                    <p style="font-size: 0.8rem; margin-top: 15px; color: var(--text-muted); opacity: 0.6;">
-                        *Plazas limitadas para early adopters.
-                    </p>
-                </div>
+                        <div id="success-message">
+                            <span class="success-icon">🎉</span>
+                            <h3 style="color: var(--success); margin-bottom: 8px;">¡Estás dentro, Bro!</h3>
+                            <p style="font-size: 0.95rem; color: var(--text-muted);">Te avisaremos para el acceso
+                                anticipado.</p>
+                        </div>
 
-                <div class="form-container" style="max-width: 450px; margin-top: 30px;">
+                        <form id="beta-form" onsubmit="handleFormSubmit(event)">
+                            <div class="input-group">
+                                <input type="email" id="email" name="email" required
+                                    placeholder="Introduce tu email...">
+                            </div>
 
-                    <div id="success-message"
-                        style="display: none; background: rgba(15, 138, 62, 0.2); border: 1px solid #0F8A3E; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
-                        <h3 style="color: #0F8A3E; margin-bottom: 8px; font-size: 1.2rem;">¡Estás dentro, Bro! 🚀</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem;">Te avisaremos en cuanto lancemos la
-                            beta. Prepárate para romper tus PRs.</p>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <select id="level" name="level" required>
+                                        <option value="" disabled selected>Tu Nivel</option>
+                                        <option value="beginner">Beginner (Escalado)</option>
+                                        <option value="intermediate">Intermediate (RX)</option>
+                                        <option value="elite">Elite (Competidor)</option>
+                                    </select>
+                                </div>
+                                <div class="input-group">
+                                    <select id="goal" name="goal" required>
+                                        <option value="" disabled selected>Objetivo Principal</option>
+                                        <option value="strength">Fuerza / RM</option>
+                                        <option value="cardio">Motor / Cardio</option>
+                                        <option value="skills">Gimnásticos</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="submit-btn" class="submit-btn">
+                                Unirse a la Lista de Espera
+                            </button>
+
+                            <p
+                                style="font-size: 0.75rem; color: var(--text-muted); opacity: 0.5; text-align: center; margin-top: 15px;">
+                                * Cero spam. Solo te escribiremos cuando lancemos la beta.
+                            </p>
+                        </form>
                     </div>
-
-                    <form id="beta-form" onsubmit="handleFormSubmit(event)"
-                        style="display: flex; flex-direction: column; gap: 16px;">
-
-                        <div class="input-group">
-                            <input type="email" id="email" name="email" required placeholder="Tu mejor email"
-                                style="width: 100%; padding: 16px; border-radius: 12px; border: 1px solid #333; background: #1E1E1E; color: #fff; font-family: inherit; font-size: 1rem; outline: none; transition: border-color 0.2s;">
-                        </div>
-
-                        <div class="input-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                            <select id="level" name="level" required
-                                style="padding: 16px; border-radius: 12px; border: 1px solid #333; background: #1E1E1E; color: #BFCED3; font-family: inherit; font-size: 1rem; outline: none; cursor: pointer;">
-                                <option value="" disabled selected>Nivel</option>
-                                <option value="beginner">Beginner (Escalado)</option>
-                                <option value="intermediate">Intermediate (RX)</option>
-                                <option value="elite">Elite (Competidor)</option>
-                            </select>
-
-                            <select id="goal" name="goal" required
-                                style="padding: 16px; border-radius: 12px; border: 1px solid #333; background: #1E1E1E; color: #BFCED3; font-family: inherit; font-size: 1rem; outline: none; cursor: pointer;">
-                                <option value="" disabled selected>Objetivo</option>
-                                <option value="strength">Fuerza / RM</option>
-                                <option value="cardio">Motor / Cardio</option>
-                                <option value="skills">Gimnásticos</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" id="submit-btn" class="cta-button"
-                            style="border: none; cursor: pointer; width: 100%; text-align: center;">
-                            Unirse a la Lista de Espera
-                        </button>
-
-                        <p style="font-size: 0.75rem; color: var(--text-muted); opacity: 0.5; text-align: center;">
-                            * Sin spam. Solo updates importantes sobre MyFitBro.
-                        </p>
-                    </form>
                 </div>
 
-                <script>
-                    // Lógica Frontend para envío de datos
-                    async function handleFormSubmit(e) {
-                        e.preventDefault();
-
-                        const btn = document.getElementById('submit-btn');
-                        const originalText = btn.innerText;
-                        const form = document.getElementById('beta-form');
-                        const successMsg = document.getElementById('success-message');
-
-                        // 1. UI Loading State
-                        btn.disabled = true;
-                        btn.innerText = "Enviando solicitud...";
-                        btn.style.opacity = "0.7";
-
-                        // Recogemos datos
-                        const formData = {
-                            email: document.getElementById('email').value,
-                            level: document.getElementById('level').value,
-                            goal: document.getElementById('goal').value,
-                            source: 'landing_page'
-                        };
-
-                        try {
-                            // 2. Conexión con Supabase Edge Function (La "Configuración Extra")
-                            // Reemplaza esta URL con la real cuando crees la función en Supabase
-                            const response = await fetch('https://TU_PROYECTO.supabase.co/functions/v1/join-waitlist', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    // 'Authorization': 'Bearer TU_ANON_KEY' // Opcional si la función es pública
-                                },
-                                body: JSON.stringify(formData)
-                            });
-
-                            if (response.ok) {
-                                // 3. Success UI
-                                form.style.display = 'none';
-                                successMsg.style.display = 'block';
-                            } else {
-                                alert("Hubo un error. Por favor inténtalo de nuevo.");
-                            }
-                        } catch (error) {
-                            console.error('Error:', error);
-                            alert("Error de conexión.");
-                        } finally {
-                            btn.disabled = false;
-                            btn.innerText = originalText;
-                            btn.style.opacity = "1";
-                        }
-                    }
-                </script>
+                <div class="mockup-container">
+                    <div class="phone-frame">
+                        <img src="assets/img/app_demo.png" alt="MyFitBro App Screenshot">
+                    </div>
+                </div>
 
             </div>
         </div>
     </main>
+
+    <script>
+        async function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const btn = document.getElementById('submit-btn');
+            const originalText = btn.innerText;
+            const form = document.getElementById('beta-form');
+            const successMsg = document.getElementById('success-message');
+
+            // 1. Estado de Carga
+            btn.disabled = true;
+            btn.innerText = "Enviando solicitud...";
+            btn.style.opacity = "0.7";
+
+            // Recogida de datos
+            const formData = {
+                email: document.getElementById('email').value,
+                level: document.getElementById('level').value,
+                goal: document.getElementById('goal').value,
+                source: 'landing_page_v1',
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                // 2. Envío a Supabase Edge Function
+                // IMPORTANTE: Reemplaza esta URL con la tuya cuando despliegues la función
+                const response = await fetch('https://TU_PROYECTO.supabase.co/functions/v1/join-waitlist', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Si habilitaste verificación JWT, añade el header Authorization aquí
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    // 3. UI Éxito
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
+                } else {
+                    const errorData = await response.json();
+                    alert("Hubo un problema: " + (errorData.error || "Inténtalo de nuevo."));
+                    btn.disabled = false;
+                    btn.innerText = originalText;
+                    btn.style.opacity = "1";
+                }
+            } catch (error) {
+                console.error('Error de red:', error);
+                // Fallback visual para pruebas si no tienes el backend conectado aún
+                // Quita esto en producción real si quieres ser estricto
+                // form.style.display = 'none';
+                // successMsg.style.display = 'block';
+
+                alert("Error de conexión. Verifica tu internet o contacta con soporte.");
+                btn.disabled = false;
+                btn.innerText = originalText;
+                btn.style.opacity = "1";
+            }
+        }
+    </script>
 
 </body>
 

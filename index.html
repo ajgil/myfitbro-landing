@@ -432,16 +432,15 @@
                 email: document.getElementById('email').value,
                 level: document.getElementById('level').value,
                 goal: document.getElementById('goal').value,
-                lang: currentLang // Enviamos el idioma al backend para el email
+                lang: currentLang
             };
 
             try {
-                // REEMPLAZA CON TU URL REAL DE SUPABASE EDGE FUNCTION
                 const response = await fetch('https://lbcmuerwfkvbpahbhqgm.supabase.co/functions/v1/join-waitlist', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': 'Bearer sb_publishable_8KLlaa7pIXeqI07Aw4Gfmg_h9WSlsW5'
+                        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxiY211ZXJ3Zmt2YnBhaGJocWdtIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODQ3NjkwMzYsImV4cCI6MjAwMDM0NTAzNn0.Dw_tpKp8wkAtFewRU62JvSG7rOvRnPUwfspuJOt3xVA'
                     },
                     body: JSON.stringify(formData)
                 });

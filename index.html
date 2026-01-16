@@ -279,6 +279,44 @@
                 font-size: 2.5rem;
             }
         }
+
+        footer {
+            padding-bottom: 40px;
+            text-align: center;
+            margin-top: 0;
+            position: relative;
+            z-index: 5;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: rgba(30, 30, 30, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .footer-link:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: rgba(255, 159, 10, 0.1);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -358,6 +396,22 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="investors/pitch.pdf" target="_blank" class="footer-link">
+                    <span>🇪🇸</span> Pitch Deck (ES)
+                </a>
+                <a href="investors/eng_pitch.pdf" target="_blank" class="footer-link">
+                    <span>🇺🇸</span> Pitch Deck (EN)
+                </a>
+            </div>
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.2);">
+                &copy; 2024 MyFitBro LLC.
+            </p>
+        </div>
+    </footer>
 
     <script>
         // --- Translations Configuration ---

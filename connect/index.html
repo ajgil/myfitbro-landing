@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFitBro - Connect</title>
+    <meta name="description" content="Buscamos partners e inversores para llevar MyFitBro al siguiente nivel.">
+
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="../assets/img/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF9F0A;
+            --primary-hover: #CC6302;
+            --secondary: #00BDFC;
+            --bg-dark: #121212;
+            --surface: #1E1E1E;
+            --surface-hover: #2A2A2A;
+            --text-main: #FCFDFD;
+            --text-muted: #BFCED3;
+            --success: #0F8A3E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: center;
+            /* Centered logo for this page */
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .text-muted {
+            color: var(--text-muted);
+        }
+
+        .highlight {
+            color: var(--primary);
+        }
+
+        /* Layout */
+        .main-content {
+            padding-top: 120px;
+            padding-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section {
+            margin-bottom: 80px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Video Container */
+        .video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-placeholder-text {
+            color: var(--text-muted);
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .card {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 159, 10, 0.3);
+            background: var(--surface-hover);
+        }
+
+        .card-content ul {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .card-content li {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .card-content li::before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            background-color: var(--primary-hover);
+            box-shadow: 0 4px 15px rgba(255, 159, 10, 0.3);
+        }
+
+        .tag {
+            background: rgba(0, 189, 252, 0.1);
+            color: var(--secondary);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-content">
+            <a href="../index.html">
+                <img src="../assets/img/logo.png" alt="MyFitBro Logo" class="logo">
+            </a>
+        </div>
+    </header>
+
+    <main class="container main-content">
+
+        <!-- Section A: Header -->
+        <section class="section text-center">
+            <h1>El código está picado.<br>La App funciona.<br><span class="highlight">Falta el ruido.</span></h1>
+            <p class="text-muted" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+                Junto a Paula Jarque, he construido el mejor tracker de CrossFit del mercado (iOS/Android).<br>
+                Busco el partner que se encargue de que el mundo se entere.
+            </p>
+        </section>
+
+        <!-- Section B: Video -->
+        <section class="section">
+            <div class="video-container">
+                <!-- Placeholder for now. If user provides a file, replace src. -->
+                <!-- Assuming a generic poster or the main demo image -->
+                <video width="100%" height="100%" controls poster="../assets/img/app_demo_1.png"
+                    style="border-radius: 20px;">
+                    <!-- <source src="../assets/video/demo.mp4" type="video/mp4"> -->
+                    <p class="text-muted" style="padding: 20px;">Tu navegador no soporta video HTML5.</p>
+                </video>
+            </div>
+            <p class="text-center text-muted" style="margin-top: 10px; font-size: 0.9rem;">(Prueba de Vida: la app
+                funcionando)</p>
+        </section>
+
+        <!-- Section C: Options -->
+        <section class="section">
+            <h2 class="text-center">Lo que busco</h2>
+            <div class="cards-grid">
+
+                <!-- Option A -->
+                <div class="card">
+                    <div class="card-content">
+                        <span class="tag">Opción A</span>
+                        <h3>¿Eres un Crack del Growth/Marketing?</h3>
+                        <ul>
+                            <li><strong>El Reto:</strong> Estrategia B2C, TikTok/Reels y Comunidad.</li>
+                            <li><strong>El Producto:</strong> App Freemium + Suscripción PRO. Monetización clara.</li>
+                            <li><strong>El Trato:</strong> Colaboración por objetivos, Revenue Share o Presupuesto de
+                                Marketing.</li>
+                        </ul>
+                        <p class="text-muted" style="margin-top: 16px; font-size: 0.95rem;">
+                            No busco empleados, busco aliados.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Option B -->
+                <div class="card">
+                    <div class="card-content">
+                        <span class="tag">Opción B</span>
+                        <h3>¿Eres Inversor?</h3>
+                        <ul>
+                            <li>Tenemos el producto terminado.</li>
+                            <li><strong>Riesgo Técnico 0.</strong></li>
+                            <li>Buscamos capital Pre-Seed exclusivamente para Marketing y UA.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="../investors/pitch.pdf" target="_blank" class="btn">
+                            Ver Pitch Deck
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container text-center" style="padding-bottom: 40px;">
+            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.2);">
+                &copy; 2026 MyFitBro by Antonio Jesus Gil.
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

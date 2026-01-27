@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700;900&display=swap');
+
+        :root {
+            --primary: #FF9F0A;
+            --secondary: #00BDFC;
+            --bg-dark: #121212;
+            --surface: #1E1E1E;
+            --text-main: #FCFDFD;
+            --text-muted: #BFCED3;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #333;
+            /* Fondo gris para diferenciar la tarjeta */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Base de la Tarjeta (Tamaño Estándar 85mm x 55mm) */
+        .card {
+            width: 500px;
+            /* Escalado para ver bien en pantalla */
+            height: 288px;
+            background-color: var(--bg-dark);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            box-sizing: border-box;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* El Efecto Glow (Esos borrones de color del CSS original) */
+        .glow-orange {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            filter: blur(80px);
+            opacity: 0.15;
+            border-radius: 50%;
+            bottom: -50px;
+            left: -50px;
+            z-index: 0;
+        }
+
+        .glow-blue {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--secondary);
+            filter: blur(80px);
+            opacity: 0.15;
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+            z-index: 0;
+        }
+
+        /* Contenido Frontal */
+        .card-front {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            z-index: 2;
+            /* Simulación del logo para la demo */
+            background-image: url('https://cdn-icons-png.flaticon.com/512/69/69840.png');
+            /* Kettlebell genérica */
+            background-size: cover;
+            filter: invert(1);
+            /* Para que sea blanco */
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--text-main);
+            margin-bottom: 5px;
+            z-index: 2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .role {
+            font-size: 16px;
+            color: var(--primary);
+            font-weight: 700;
+            z-index: 2;
+            letter-spacing: 2px;
+        }
+
+        /* Contenido Trasero */
+        .card-back {
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        .hook-text {
+            z-index: 2;
+        }
+
+        .hook-title {
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--text-main);
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        .hook-subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .cta-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 2;
+            margin-top: auto;
+        }
+
+        .cta-text {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 16px;
+            max-width: 60%;
+            line-height: 1.2;
+        }
+
+        .qr-box {
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            width: 90px;
+            height: 90px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qr-code {
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            /* Simulación QR */
+            mask-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg');
+            mask-size: cover;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card card-front">
+        <div class="glow-orange"></div>
+        <div class="glow-blue"></div>
+
+        <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=LOGO"
+            style="width:70px; margin-bottom:15px; border-radius:10px; z-index:2" alt="Logo">
+
+        <div class="name">Antonio Jesús Gil</div>
+        <div class="role">FOUNDER & BUILDER</div>
+    </div>
+
+    <div class="card card-back">
+        <div class="glow-blue" style="left: -50px; top: -50px;"></div>
+        <div class="glow-orange" style="right: -50px; bottom: -50px;"></div>
+
+        <div class="hook-text">
+            <div class="hook-title">APP TERMINADA.<br>LISTA PARA LANZAR.</div>
+            <div class="hook-subtitle">Busco Growth Partner para entrada a mercado (USA/EU).</div>
+        </div>
+
+        <div class="cta-box">
+            <div class="cta-text">Probamos,<br>Crecemos y<br>Ganamos.</div>
+            <div class="qr-box">
+                <div class="qr-code"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

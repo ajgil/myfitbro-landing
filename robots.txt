@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://myfitbro.app/sitemap.xml

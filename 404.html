@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | MyFitBro</title>
+    <meta name="description" content="The page you are looking for does not exist.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF9F0A;
+            --primary-hover: #CC6302;
+            --secondary: #00BDFC;
+            --bg-dark: #121212;
+            --surface: #1E1E1E;
+            --text-main: #FCFDFD;
+            --text-muted: #BFCED3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            font-weight: bold;
+        }
+
+        /* 404 Content */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+        }
+
+        main::before,
+        main::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: pulse 8s infinite alternate ease-in-out;
+        }
+
+        main::before {
+            top: 10%;
+            right: 10%;
+            background: var(--secondary);
+        }
+
+        main::after {
+            bottom: 10%;
+            left: 10%;
+            background: var(--primary);
+            animation-delay: -4s;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1) translate(0, 0);
+                opacity: 0.1;
+            }
+
+            100% {
+                transform: scale(1.2) translate(5%, 5%);
+                opacity: 0.2;
+            }
+        }
+
+        .error-content {
+            z-index: 1;
+            padding: 40px;
+            background: rgba(30, 30, 30, 0.4);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0;
+            line-height: 1;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-hover));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 159, 10, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-hover);
+            box-shadow: 0 8px 25px rgba(255, 159, 10, 0.4);
+        }
+
+        footer {
+            padding: 24px 0;
+            text-align: center;
+            opacity: 0.5;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .error-code {
+                font-size: 6rem;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .error-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav-content">
+            <a href="/"><img src="assets/img/logo.png" alt="MyFitBro Logo" class="logo"></a>
+            <div class="lang-switch">
+                <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="setLanguage('es')">ES</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="error-content">
+                <div class="error-code">404</div>
+                <h1 id="headline">Oops! Page not found.</h1>
+                <p id="subheadline">This page is on a rest day. Let's get you back to the training session.</p>
+                <a href="/" class="cta-btn" id="cta-btn">Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2026 MyFitBro. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const i18n = {
+            es: {
+                headline: "¡Ups! Página no encontrada.",
+                subheadline: "Esta página está en su día de descanso. Volvamos a la sesión de entrenamiento.",
+                cta: "Volver al Inicio"
+            },
+            en: {
+                headline: "Oops! Page not found.",
+                subheadline: "This page is on a rest day. Let's get you back to the training session.",
+                cta: "Back to Home"
+            }
+        };
+
+        function setLanguage(lang) {
+            const texts = i18n[lang];
+            document.getElementById('headline').innerText = texts.headline;
+            document.getElementById('subheadline').innerText = texts.subheadline;
+            document.getElementById('cta-btn').innerText = texts.cta;
+
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.lang-btn[onclick="setLanguage('${lang}')"]`).classList.add('active');
+
+            document.documentElement.lang = lang;
+        }
+
+        // Auto-detect language if possible (simple check)
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith('es')) {
+            setLanguage('es');
+        }
+    </script>
+</body>
+
+</html>

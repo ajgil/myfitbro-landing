@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://myfitbro.app/sitemap.xml
+Sitemap: https://www.myfitbro.app/sitemap.xml

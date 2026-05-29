@@ -459,6 +459,24 @@
 
         let currentLang = 'en';
 
+        // --- UTM Parameters Capture ---
+        const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_id', 'utm_term', 'utm_content'];
+        const urlParams = new URLSearchParams(window.location.search);
+        utmKeys.forEach(key => {
+            const val = urlParams.get(key);
+            if (val) sessionStorage.setItem(key, val);
+        });
+
+        function getUtmParams() {
+            const params = {};
+            utmKeys.forEach(key => {
+                const val = urlParams.get(key) || sessionStorage.getItem(key) || '';
+                if (val) params[key] = val;
+            });
+            return params;
+        }
+        // ---
+
         function setLanguage(lang) {
             currentLang = lang;
             const texts = i18n[lang];
@@ -489,11 +507,14 @@
             btn.disabled = true;
             btn.innerText = i18n[currentLang].btn_sending;
 
+            const utmParams = getUtmParams();
+
             const formData = {
                 email: document.getElementById('email').value,
                 level: document.getElementById('level').value,
                 goal: document.getElementById('goal').value,
-                lang: currentLang
+                lang: currentLang,
+                utm_params: Object.keys(utmParams).length > 0 ? utmParams : undefined
             };
 
             try {
